@@ -1,0 +1,15 @@
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.csproj.AssemblyReference.cache
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.AssemblyInfoInputs.cache
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.AssemblyInfo.cs
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.csproj.CoreCompileInputs.cache
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\bin\Debug\net6.0\UserManagment.exe
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\bin\Debug\net6.0\UserManagment.deps.json
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\bin\Debug\net6.0\UserManagment.runtimeconfig.json
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\bin\Debug\net6.0\UserManagment.dll
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\bin\Debug\net6.0\UserManagment.pdb
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.dll
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\refint\UserManagment.dll
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.pdb
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\UserManagment.genruntimeconfig.cache
+C:\Users\Matey Tsilov\source\repos\UserManagment\UserManagment\obj\Debug\net6.0\ref\UserManagment.dll
