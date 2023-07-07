@@ -37,7 +37,7 @@ namespace UserManagment.Utilities
             Console.ForegroundColor = ConsoleColor.White;
             string userType = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write("Username: ");
+            Console.Write("\nUsername: ");
             Console.ForegroundColor = ConsoleColor.White;
             string username = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -67,7 +67,7 @@ namespace UserManagment.Utilities
                 case "4": break;
                 default:
                     Console.WriteLine("There is no such user type, sorry! Try again please!");
-                    break;
+                    return;
 
             }
 
@@ -88,17 +88,19 @@ namespace UserManagment.Utilities
         {
             if (File.Exists(Constants.Constants.PATH))
             {
-                Console.WriteLine("An existing file with populated Users data already exists!");
-            }else
-            {
-                if (!Directory.Exists(Constants.Constants.DIRECTORY))
-                {
-                    Directory.CreateDirectory(Constants.Constants.DIRECTORY);
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Directory is ready for saving users!");
-                    Console.ResetColor();
-                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("An existing file with populated Users data already exists!\n");
+                Console.ResetColor();
             }
+            else
+            {
+                Directory.CreateDirectory(Constants.Constants.DIRECTORY);
+                File.Create(Constants.Constants.PATH).Close();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Directory is ready for saving users!");
+                Console.ResetColor();
+            }
+               
         }
 
         internal static void SaveEmployees(List<User> users) 
@@ -127,12 +129,15 @@ namespace UserManagment.Utilities
 
         }
 
-        internal static void LoadUsers(List<User> usersInConsole)
+        internal static void LoadUsers(string[] users)
         {
-            usersInConsole.Clear();
+            if (users.Length == 0)
+            {
+                Console.WriteLine("Sorry, there aren't any records to be loaded! Create some.");
+                return;
+            }
 
-            string[] usersInMemory = File.ReadAllLines(Constants.Constants.PATH);
-            foreach (string userLine in usersInMemory)
+            foreach (string userLine in users)
             {
                 string[] userSplits = userLine.Split(';');
 
@@ -163,6 +168,31 @@ namespace UserManagment.Utilities
                 curUser.Display();
             }
 
+        }
+
+        internal static void DeleteUser(string[] usersLine, string uName)
+        {
+         
+            foreach (string user in usersLine)
+            {
+                string[] userChuncks = user.Split(";");
+                string name = userChuncks[1].Split(":")[1].ToLower();
+
+                if (name == uName)
+                {
+                    string hello = usersLine.Where(u => u.Contains(name) == false).ToString();
+                    File.WriteAllText(Constants.Constants.PATH, hello);
+                }else
+                {
+                    Console.WriteLine("There is no such User! Please try again!");
+                    return;
+                }
+
+            }
+
+            
+
+            
         }
 
         private static string GetUserType(User user)

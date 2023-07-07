@@ -12,16 +12,8 @@ do
 {
     Utilities.CheckIfDirectoryExists();
     Console.WriteLine($"You have {users.Count} record(s) in program memory");
-
-    if (File.Exists(Constants.PATH))
-    {
-        string[] textFile = File.ReadAllLines(Constants.PATH);
-        Console.WriteLine($"You have {textFile.Length} record(s) in cache memory");
-    }
-    else
-    {
-        Console.WriteLine($"You have 0 record(s) in cache memory");
-    }
+    string[] textFile = File.ReadAllLines(Constants.PATH);
+        Console.WriteLine($"You have {textFile.Length} record(s) in cache memory");   
 
     Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("~~~~~~~~~~Select an action~~~~~~~~~~");
@@ -45,6 +37,10 @@ do
     Console.ForegroundColor = ConsoleColor.Red;
     Console.Write("5. ");
     Console.ForegroundColor = ConsoleColor.Magenta;
+    Console.WriteLine("Delete User");
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.Write("6. ");
+    Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("Quit Application");
     Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     Console.ForegroundColor = ConsoleColor.White;
@@ -65,9 +61,14 @@ do
             Utilities.SaveEmployees(users);
             break;
         case "4": 
-            Utilities.LoadUsers(users);
+            Utilities.LoadUsers(textFile);
             break;
-        case "5": break;
+        case "5":
+            Console.Write("Which User would you like to delete? By Name? - ");
+            string username = Console.ReadLine().ToLower();
+            Utilities.DeleteUser(textFile, username);
+            break;
+        case "6": break;
             default: Console.WriteLine("The selection was invalid. Try again!"); break;
 
 
@@ -76,4 +77,4 @@ do
 
 
 
-} while (selection != "5");
+} while (selection != "6");
