@@ -36,6 +36,9 @@ namespace UserManagment.Utilities
             Console.Write("Your selection: ");
             Console.ForegroundColor = ConsoleColor.White;
             string userType = Console.ReadLine();
+
+
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("\nUsername: ");
             Console.ForegroundColor = ConsoleColor.White;
@@ -172,27 +175,36 @@ namespace UserManagment.Utilities
 
         internal static void DeleteUser(string[] usersLine, string uName)
         {
-         
+
+            StringBuilder modifiedUsers = new StringBuilder();
+
             foreach (string user in usersLine)
             {
                 string[] userChuncks = user.Split(";");
                 string name = userChuncks[1].Split(":")[1].ToLower();
 
-                if (name == uName)
+                if (name != uName)
                 {
-                    string hello = usersLine.Where(u => u.Contains(name) == false).ToString();
-                    File.WriteAllText(Constants.Constants.PATH, hello);
-                }else
-                {
-                    Console.WriteLine("There is no such User! Please try again!");
-                    return;
+                    modifiedUsers.AppendLine(user);
+                    
                 }
-
+                
+            }
+            if (usersLine.Length == modifiedUsers.Length)
+            {
+                Console.WriteLine("There is no such User! Please try again!\n\n");
+                return;
             }
 
-            
 
-            
+            File.WriteAllText(Constants.Constants.PATH, modifiedUsers.ToString());
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"You have succeseffuy deleted {uName}'s record\n\n");
+            return;
+
+
+
+
         }
 
         private static string GetUserType(User user)
