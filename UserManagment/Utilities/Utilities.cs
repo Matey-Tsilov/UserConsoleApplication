@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,6 +109,7 @@ namespace UserManagment.Utilities
 
         internal static void SaveEmployees(List<User> users) 
         {
+
             if (users.Count == 0)
             {
                 Console.WriteLine("Sorry, you haven't created any user records\n");
@@ -129,7 +131,7 @@ namespace UserManagment.Utilities
             Console.WriteLine("Employees saved successefuly!\n\n");
             Console.ResetColor();
 
-
+            users.Clear();
         }
 
         internal static void LoadUsers(string[] users)
@@ -211,6 +213,7 @@ namespace UserManagment.Utilities
         {
            if (user is PremiumUser)
             {
+                Debug.WriteLine("The User is really suuuui!");
                 return "3";
             }else if(user is UpgradedUser)
             {

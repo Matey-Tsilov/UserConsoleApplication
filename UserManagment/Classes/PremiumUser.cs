@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserManagment.Classes
 {
-    internal class PremiumUser : User
+    public class PremiumUser : User
     {
         private List<string> bonuses = new List<string>();
         public PremiumUser(string u, string pass, string email) : base(u, pass, email)
